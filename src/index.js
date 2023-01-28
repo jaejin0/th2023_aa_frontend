@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Search from './pages/Search/Search';
 
-import './index.css';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
