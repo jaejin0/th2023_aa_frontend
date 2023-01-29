@@ -2,7 +2,7 @@
 
 ## Usage
 ```
-git clone https://github.com/jaejin0/th2023_aa_frontend`
+git clone https://github.com/jaejin0/th2023_aa_frontend.git
 cd th2023_aa_frontend
 npm install
 npm start
