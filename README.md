@@ -9,6 +9,4 @@ npm start
 ```
 
 ## Requirements
-https://github.com/AmericanAirlines/Flight-Engine
-
 https://github.com/jaejin0/th2023_aa_backend
