@@ -27,7 +27,7 @@ const Search = () => {
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     const onSubmit = async () => {
-        if (flightNumber != null && flightNumber != '') {
+        if (flightNumber !== null && flightNumber !== '') {
             setSubmit(true);
             await delay(1500); // wait for animation to complete then redirect
             navigate(`/catch/${flightNumber}?date=${date.unix()}`);
@@ -42,7 +42,7 @@ const Search = () => {
 
     useEffect(() => {
         delayLoad();
-    }, []);
+    }, [delayLoad]);
 
     return (
         <LocalizationProvider dateAdapter={AdapterMoment}>
