@@ -1,4 +1,4 @@
-.search-page {
+.details-page {
     position: relative;
     overflow: hidden;
     height: 100vh;
@@ -9,27 +9,34 @@
         font-size: 50px;
         font-weight: 500;
         text-align: center;
-        margin-bottom: 8rem;
+        margin-bottom: 7rem;
         margin-top: 5rem;
-    } 
+    }
 
     .info-container {
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        .flight-number, .date {
-            width: 18rem;
+        div {
+            display: flex;
 
             p {
+                width: 20rem;
                 font-size: 20px;
                 font-weight: 600;
-                margin-bottom: 0.5rem;
-                text-align: center;
+
+                &:first-child {
+                    text-align: left;
+                }
+
+                &:nth-child(2) {
+                    text-align: right;
+                }
             }
         }
 
-        .submit {
+        .restart {
             margin-top: 2rem;
         }
     }
@@ -38,27 +45,27 @@
         position: absolute;
     }
 
-
     .plane {
-        right: 12rem;
-        top: 20rem;
+        left: 2rem;
+        top: 5rem;
+        rotate: 80deg;
 
-        transition: transform 2s;
+        transition: transform 1.5s;
 
         &.out {
-            transform: translate(150%, -150%);
+            transform: translate(-150%, 150%);
         }
 
         &.in {
             transform: translate(0%, 0%);
         }
     }
-
-    .cloud1, .cloud2, .cloud3, .cloud4 {
+    
+    .cloud1, .cloud3, .cloud4 {
         transition: transform 1.8s;
 
         &.out {
-            transform: translateY(205%);
+            transform: translateY(150%);
         }
 
         &.in {
@@ -67,23 +74,19 @@
     }
 
     .cloud1 {
-        right: 0;
-        bottom: 0;
-    }
-
-    .cloud2 {
-        left: 0;
-        bottom: 0;
+        top: 1rem;
+        right: -2rem;
+        rotate: 270deg;
     }
 
     .cloud3 {
-        top: 12rem;
-        left: 8rem;
+        right: 5rem;
+        bottom: 8rem;
     }
 
     .cloud4 {
-        top: 35rem;
-        left: 18rem;
+        bottom: 2rem;
+        left: 0;
     }
 
     &.hide {
