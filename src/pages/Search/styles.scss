@@ -1,30 +1,59 @@
 .search-page {
     h1 {
+        font-size: 50px;
+        font-weight: 500;
         text-align: center;
-    }
+        margin-bottom: 8rem;
+        margin-top: 5rem;
+    } 
 
-    .search-box {
-        h3 {
-            text-align: center;
-        }
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        .flight-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
+        .flight-number, .date {
+            width: 18rem;
 
-            width: 80rem;
-            height: 10rem;
-            border: solid black 0.1rem;
-            border-radius: 12px;
-
-            .flight-number, .date {
-                padding-left: 1rem;
-                padding-right: 1rem;
-
-                font-size: 1rem;
+            p {
+                font-size: 20px;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                text-align: center;
             }
         }
+
+        .submit {
+            margin-top: 2rem;
+        }
+    }
+
+    .plane, .cloud1, .cloud2, .cloud3, .cloud4 {
+        position: absolute;
+    }
+
+    .plane {
+        right: 12rem;
+        top: 20rem;
+    }
+
+    .cloud1 {
+        right: 0;
+        bottom: 0;
+    }
+
+    .cloud2 {
+        left: 0;
+        bottom: 0;
+    }
+
+    .cloud3 {
+        top: 12rem;
+        left: 8rem
+    }
+
+    .cloud4 {
+        top: 35rem;
+        left: 18rem;
     }
 }
