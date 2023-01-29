@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import moment from 'moment';
+import { toast } from 'react-toastify';
 
 import { ReactComponent as Plane } from '../../img/plane.svg';
 import { ReactComponent as Cloud1 } from '../../img/cloud1.svg';
@@ -42,14 +43,18 @@ const FlightDetails = () => {
 
     // TODO - Pull data from API
     const getData = async () => {
-        await delay(2000);
-
-        setDeparture(MockInfo.departure);
-        setArrival(MockInfo.arrival);
-        setDepartureTime(MockInfo.departureTime[0] == 0 ? MockInfo.departureTime.slice(1) : MockInfo.departureTime);
-        setBaggageCheckTime(MockInfo.baggageCheckTime);
-        setTSATime(MockInfo.tsaTime);
-        setWalkTime(MockInfo.walkTime);
+        try {
+            const response = await fetch(`http://localhost:8000/members/${date.toISOString().substr(0, 10)}/${params.flightNum}`);
+            const data = await response.json();
+            setArrival(data.arrival);
+            setBaggageCheckTime(data.baggageTime)
+            setDeparture(data.departure)
+            setDepartureTime(data.departureTime[0] == 0 ? MockInfo.departureTime.slice(1) : data.departureTime)
+            setTSATime(data.tsaTime)
+            setWalkTime(data.walkTime)
+        } catch {
+            console.log('error getting info for flight number');
+        }
 
         let departureDate = new Date(`${date.toISOString().split('T')[0]} ${departureTime}`);
         let arrivalString = moment(departureDate).subtract(baggageCheckTime + tsaTime + walkTime + extraTime, 'm').toDate()
@@ -69,8 +74,6 @@ const FlightDetails = () => {
     useEffect(() => {
         getData();
     }, [getData]);
-
-    
 
     return (
         <div className={!loaded || restart ? 'details-page hide' : 'details-page'}>
